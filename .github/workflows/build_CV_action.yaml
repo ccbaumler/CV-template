@@ -1,4 +1,4 @@
-iname: Render Curriculum Vitae
+name: Render Curriculum Vitae
 
 on:
   push:
