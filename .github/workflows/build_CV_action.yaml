@@ -1,4 +1,4 @@
-name: Render Curriculum Vitae
+iname: Render Curriculum Vitae
 
 on:
   push:
@@ -35,9 +35,8 @@ jobs:
             texlive-latex-base \
             texlive-latex-recommended \
             texlive-xetex \
-            texlive-fonts-extra \
-            lmodern
-
+            texlive-fonts-extra 
+  
       # Step 5: Install R package dependencies
       - name: Install R packages
         run: |
@@ -60,15 +59,26 @@ jobs:
 
       # Step 8: Upload the CV as an artifact
       - name: Upload CV PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: colton-baumler-cvs
-          path: docs/your-name.pdf, docs/your-name.html
+          name: your-name-CVs
+          path: |
+            docs/your-name.pdf
+            docs/your-name.html
 
       # Optional Step 9: Create latest link
       #- name: Create Tag and Release
       #  env:
       #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #    INPUT_FILE_NAME: docs/colton-baumler.pdf
+      #    INPUT_FILE_NAME: docs/your-name.pdf
       #  run: |
       #    bash ./entrypoint.sh 
+
+      - name: Validate CV output
+        run: |
+          if [ ! -f "docs/your-name.pdf" ]; then
+            echo "PDF file not found!" && exit 1
+          fi
+          if [ ! -f "docs/your-name.html" ]; then
+            echo "HTML file not found!" && exit 1
+          fi

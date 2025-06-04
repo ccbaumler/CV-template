@@ -1,7 +1,7 @@
 ---
 title: markdowncv
 name: "Colton"
-namecolor: "#777"
+namecolor: "#E1BE6A"
 surname: Baumler
 position: "Graduate Student Candidate"
 pronouns: He/Him
@@ -12,11 +12,11 @@ email: "ccbaumler@ucdavis.edu"
 github: ccbaumler
 linkedin: colton-baumler
 orcid: 0000-0002-5926-7792
-headcolor: "#E1BE6A"
-addresscolor: "#107895"
-codecolor: "#777"
-backcolor: "#000"
-textcolor: "#FFF"
+headcolor: "#FFD700"
+addresscolor: "#A7D3DC"
+codecolor: "#CCCCCC"
+backcolor: "#777"
+textcolor: "#FFFFFF"
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "I am deeply engaged in bioinformatics and mentorship. I excitedly wrangle data, craft software, and create dynamic mentorship opportunities."
 output:
@@ -28,10 +28,6 @@ css:
 ---
 
 ```{r setup, include=FALSE}
-# Current setup
-# install.packages("remotes")
-#remotes::install_github("ccbaumler/vitae", ref = 'update-markdowncv')
-
 # Go to https://yihui.org/tinytex/r/#debugging
 # if you experience any latex erros
 
@@ -39,8 +35,9 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE,
                       message = FALSE)
 
-require(xfun)
+require(xfun) # Utility functions for knitr, rmarkdown, quarto, and more.
 
+# List of all the packages used
 packages <- c('vitae'     # The CV's LaTeX Template
              ,'tibble'    # Data structure for tribbles
              ,'magrittr'  # The Pipe %>%
@@ -49,8 +46,10 @@ packages <- c('vitae'     # The CV's LaTeX Template
              ,'glue'      # String Manipulation
             )
 
+# Load all packages used
 xfun::pkg_attach2(packages, message = FALSE)
 
+# Load the data file of tibbles
 source(file = here("data", "data.r"))
 
 ```
