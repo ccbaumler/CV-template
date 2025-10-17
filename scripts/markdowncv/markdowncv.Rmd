@@ -15,7 +15,7 @@ orcid: 0000-0002-5926-7792
 headcolor: "#FFD700"
 addresscolor: "#A7D3DC"
 codecolor: "#CCCCCC"
-backcolor: "#777"
+backcolor: "#000"
 textcolor: "#FFFFFF"
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "I am deeply engaged in bioinformatics and mentorship. I excitedly wrangle data, craft software, and create dynamic mentorship opportunities."
