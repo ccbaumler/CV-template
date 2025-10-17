@@ -32,6 +32,9 @@ git clone git@github.com:<username>/CV.git
 ```
 # List of all the packages used
 packages <- c('vitae'     # The CV's LaTeX Template
+             ,'tinytex'   # Vitea's LaTeX Tool in R
+             ,'xfun'      # 
+             ,'rmarkdown' #
              ,'tibble'    # Data structure for tribbles
              ,'magrittr'  # The Pipe %>%
              ,'here'      # Relative File Paths
@@ -46,6 +49,9 @@ to_install <- setdiff(packages, installed)
 if (length(to_install) > 0) {
   install.packages(to_install)
 }
+
+# If tinytex is being installed, run:
+# tinytex::install_tinytex()
 ```
 
 </details>
@@ -70,7 +76,12 @@ git grep 'your-name' .github/workflows/build_CV_action.yaml | xargs sed -i 's/yo
 2. In Github, for a stand-alone, static webpage of your CV/resume
 `Settings` > `Pages` > `Branch` > `main` > `/docs` > `Save`
 
-3. The GitHub actions require permission to push changes to the files. Do so by navigating to:
+  	a. To include this in the description section of the repo:
+	  Select the gear icon in the upper right, under `Website` click and unclick the box for `Use your GitHub Pages website`.
+	  Now add the html file name to the end - `your-name.html`
+	  The final link should look something like `https://ccbaumler.github.io/CV-example/your-name.html`
+
+4. The GitHub actions require permission to push changes to the files. Do so by navigating to:
 `Settings` > `Actions` > `General` > `Workflow permissions` > `Read and write permissions`
 
 ## What is the motivation of this project?
